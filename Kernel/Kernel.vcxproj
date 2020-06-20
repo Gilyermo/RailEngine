@@ -1,0 +1,186 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="14.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{ACAEE5D6-0E77-4D75-AA65-B01414364066}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <RootNamespace>Kernel</RootNamespace>
+    <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>true</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <CharacterSet>Unicode</CharacterSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>DynamicLibrary</ConfigurationType>
+    <UseDebugLibraries>false</UseDebugLibraries>
+    <PlatformToolset>v142</PlatformToolset>
+    <WholeProgramOptimization>true</WholeProgramOptimization>
+    <CharacterSet>Unicode</CharacterSet>
+    <BasePlatformToolset>v110_xp</BasePlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets" Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <TargetName>RGEKernel_d</TargetName>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <LinkIncremental>false</LinkIncremental>
+    <IncludePath>$(IncludePath)</IncludePath>
+    <LibraryPath>$(LibraryPath)</LibraryPath>
+    <TargetName>RGEKernel_r</TargetName>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <WarningLevel>Level1</WarningLevel>
+      <Optimization>Disabled</Optimization>
+      <PreprocessorDefinitions>WIN32;KERNEL_EXPORTS;_DEBUG;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <UndefinePreprocessorDefinitions>min; max</UndefinePreprocessorDefinitions>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <MinimalRebuild>false</MinimalRebuild>
+      <BrowseInformation>true</BrowseInformation>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+    </Link>
+    <Bscmake>
+      <PreserveSbr>true</PreserveSbr>
+    </Bscmake>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <WarningLevel>Level1</WarningLevel>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <Optimization>MaxSpeed</Optimization>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <IntrinsicFunctions>true</IntrinsicFunctions>
+      <PreprocessorDefinitions>WIN32;KERNEL_EXPORTS;_CONSOLE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <SDLCheck>true</SDLCheck>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <OpenMPSupport>false</OpenMPSupport>
+      <RuntimeLibrary>MultiThreaded</RuntimeLibrary>
+      <UndefinePreprocessorDefinitions>min; max</UndefinePreprocessorDefinitions>
+      <EnableParallelCodeGeneration>true</EnableParallelCodeGeneration>
+      <Cpp0xSupport>true</Cpp0xSupport>
+    </ClCompile>
+    <Link>
+      <SubSystem>Console</SubSystem>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <EnableCOMDATFolding>true</EnableCOMDATFolding>
+      <OptimizeReferences>true</OptimizeReferences>
+    </Link>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <ClInclude Include="Exception\Exception.h" />
+    <ClInclude Include="KernelDLL.h" />
+    <ClInclude Include="Logging\ILog.h" />
+    <ClInclude Include="Logging\LogFile.h" />
+    <ClInclude Include="Logging\Logging.h" />
+    <ClInclude Include="Logging\LogManager.h" />
+    <ClInclude Include="Math\AABB.h" />
+    <ClInclude Include="Math\EulerAngles.h" />
+    <ClInclude Include="Math\Frustum.h" />
+    <ClInclude Include="Math\Intersection.h" />
+    <ClInclude Include="Math\Line.h" />
+    <ClInclude Include="Math\Math.h" />
+    <ClInclude Include="Math\Matrix33.h" />
+    <ClInclude Include="Math\Matrix44.h" />
+    <ClInclude Include="Math\Plane.h" />
+    <ClInclude Include="Math\Quaternion.h" />
+    <ClInclude Include="Math\Ray.h" />
+    <ClInclude Include="Math\Rect.h" />
+    <ClInclude Include="Math\Segment.h" />
+    <ClInclude Include="Math\Sphere.h" />
+    <ClInclude Include="Math\Triangle.h" />
+    <ClInclude Include="Math\Vector2.h" />
+    <ClInclude Include="Math\Vector3.h" />
+    <ClInclude Include="Math\Vector4.h" />
+    <ClInclude Include="Memory\Align.h" />
+    <ClInclude Include="Memory\Adapter.h" />
+    <ClInclude Include="Memory\Arena.h" />
+    <ClInclude Include="Memory\HeapAllocator.h" />
+    <ClInclude Include="Memory\IAllocator.h" />
+    <ClInclude Include="Memory\Memory.h" />
+    <ClInclude Include="Memory\PoolAllocator.h" />
+    <ClInclude Include="Memory\LinearAllocator.h" />
+    <ClInclude Include="Memory\HeapSegment.h" />
+    <ClInclude Include="Memory\StackAllocator.h" />
+    <ClInclude Include="Misc\FormatString.h" />
+    <ClInclude Include="Multithreading\ITask.h" />
+    <ClInclude Include="Multithreading\Multitask.h" />
+    <ClInclude Include="Multithreading\Multithreading.h" />
+    <ClInclude Include="Multithreading\RWSpinlock.h" />
+    <ClInclude Include="Multithreading\SafeContainer.h" />
+    <ClInclude Include="Multithreading\List.h" />
+    <ClInclude Include="Multithreading\Spinlock.h" />
+    <ClInclude Include="Multithreading\Task.h" />
+    <ClInclude Include="Multithreading\Thread.h" />
+    <ClInclude Include="Multithreading\ThreadManager.h" />
+    <ClInclude Include="Platform\Settings.h" />
+    <ClInclude Include="Platform\Win32\Timer_Win32Impl.h" />
+    <ClInclude Include="Timing\ITimer.h" />
+    <ClInclude Include="Timing\Timer.h" />
+    <ClInclude Include="Timing\TimeStamp.h" />
+    <ClInclude Include="Timing\Timing.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Exception\Exception.cpp" />
+    <ClCompile Include="Logging\LogFile.cpp" />
+    <ClCompile Include="Logging\LogManager.cpp" />
+    <ClCompile Include="Math\EulerAngles.cpp" />
+    <ClCompile Include="Math\Frustum.cpp" />
+    <ClCompile Include="Math\Intersection.cpp" />
+    <ClCompile Include="Math\Math.cpp" />
+    <ClCompile Include="Math\Matrix33.cpp" />
+    <ClCompile Include="Math\Matrix44.cpp" />
+    <ClCompile Include="Math\Plane.cpp" />
+    <ClCompile Include="Math\Quaternion.cpp" />
+    <ClCompile Include="Math\Triangle.cpp" />
+    <ClCompile Include="Math\Vector2.cpp" />
+    <ClCompile Include="Math\Vector3.cpp" />
+    <ClCompile Include="Math\Vector4.cpp" />
+    <ClCompile Include="Memory\Arena.cpp" />
+    <ClCompile Include="Memory\HeapAllocator.cpp" />
+    <ClCompile Include="Memory\LinearAllocator.cpp" />
+    <ClCompile Include="Memory\HeapSegment.cpp" />
+    <ClCompile Include="Memory\StackAllocator.cpp" />
+    <ClCompile Include="Misc\FormatString.cpp" />
+    <ClCompile Include="Multithreading\RWSpinlock.cpp" />
+    <ClCompile Include="Multithreading\Thread.cpp" />
+    <ClCompile Include="Multithreading\ThreadManager.cpp" />
+    <ClCompile Include="Platform\Win32\Timer_Win32Impl.cpp" />
+    <ClCompile Include="Timing\TimeStamp.cpp" />
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
